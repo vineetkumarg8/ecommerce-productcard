@@ -8,6 +8,13 @@
       // https://github.com/rafgraph/spa-github-pages
       var pathSegmentsToKeep = 1;
       var l = window.location;
+
+      // Handle the case where the URL doesn't end with a slash
+      if (l.pathname === '/ecommerce-productcard' && !l.search && !l.hash) {
+        l.replace(l.protocol + '//' + l.hostname + '/ecommerce-productcard/');
+        return;
+      }
+
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
