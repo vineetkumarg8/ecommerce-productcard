@@ -23,8 +23,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const basename = process.env.NODE_ENV === 'production' ? '/ecommerce-productcard' : '';
 root.render(
-  <BrowserRouter basename="/ecommerce-productcard">
+  <BrowserRouter basename={basename}>
     <ScrollToTop>
       <Provider store={store}>
         <Routes>
