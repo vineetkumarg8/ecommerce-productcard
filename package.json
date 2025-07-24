@@ -2,7 +2,7 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vineetkumarg8.github.io",
+  "homepage": "https://vineetkumarg8.github.io/ecommerce-productcard",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@sendgrid/mail": "^8.1.5",
