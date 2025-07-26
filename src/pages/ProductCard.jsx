@@ -46,31 +46,28 @@ const ProductCard = () => {
   ];
 
   return (
-    <>
+    <div>
       <Navbar />
       <div className="container my-5">
         <div className="row mb-4">
           <div className="col-12 text-center">
             <h1 className="display-4">ProductCard Component</h1>
+            <p className="lead">Responsive Product Cards Demo</p>
           </div>
         </div>
 
-
-
         {/* Product Cards Demo */}
         <div className="row">
-          
-          {/* Standard Cards */}
           {sampleProducts.map((product) => (
-            <ProductCardSimple 
-              key={product.id} 
-              product={product} 
+            <ProductCardSimple
+              key={product.id}
+              product={product}
             />
           ))}
-          
+
           {/* Card with Variants */}
-          <ProductCardSimple 
-            product={sampleProducts[1]} 
+          <ProductCardSimple
+            product={sampleProducts[1]}
             showVariants={true}
             variants={variants}
           />
@@ -79,7 +76,7 @@ const ProductCard = () => {
 
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
