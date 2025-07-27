@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/action";
+import toast from "react-hot-toast";
 import "./ProductCardSimple.css";
 
 const ProductCardSimple = ({ product, variants = [], showVariants = false }) => {
   const [selectedVariant, setSelectedVariant] = useState(variants[0] || null);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const isOutOfStock = product.quantity === 0;
   const getCurrentPrice = () => selectedVariant?.price || product.price;
@@ -13,11 +17,11 @@ const ProductCardSimple = ({ product, variants = [], showVariants = false }) => 
     if (isOutOfStock) return;
     setLoading(true);
     try {
-      // Simulate adding to cart for demo purposes
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      alert("Added to cart successfully! (Demo mode)");
+      const productToAdd = { ...product, price: getCurrentPrice(), selectedVariant };
+      dispatch(addCart(productToAdd));
+      toast.success("Added to cart!");
     } catch (error) {
-      alert("Failed to add to cart");
+      toast.error("Failed to add to cart");
     } finally {
       setLoading(false);
     }
