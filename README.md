@@ -1,3 +1,5 @@
+## Deployed link<br>
+https://6885a7fb0eea5a000958c8c0--polite-longma-a544d8.netlify.app/productcard
 ## Run Locally
 
 Clone the project
